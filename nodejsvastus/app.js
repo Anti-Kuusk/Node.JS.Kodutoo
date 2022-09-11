@@ -21,7 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.get("/",(req, res) => {
+  res.sendFile(path.join(__dirname, "index.js"));
+})
 app.get('/getRequest/:name', function(req,res){
 res.send('Hello, ' + ' ' + req.params.name)
 })
